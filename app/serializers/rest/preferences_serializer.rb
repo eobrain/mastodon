@@ -8,6 +8,7 @@ class REST::PreferencesSerializer < ActiveModel::Serializer
 
   attribute :reading_default_sensitive_media, key: 'reading:expand:media'
   attribute :reading_default_sensitive_text, key: 'reading:expand:spoilers'
+  attribute :reading_autoplay_gifs, key: 'reading:autoplay:gifs'
 
   def posting_default_privacy
     object.user.setting_default_privacy

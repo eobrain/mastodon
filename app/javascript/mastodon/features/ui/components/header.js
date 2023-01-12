@@ -5,7 +5,14 @@ import { FormattedMessage } from 'react-intl';
 import { registrationsOpen } from 'mastodon/initial_state';
 import PropTypes from 'prop-types';
 
-export default @withRouter
+const mapDispatchToProps = (dispatch) => ({
+  openClosedRegistrationsModal() {
+    dispatch(openModal('CLOSED_REGISTRATIONS'));
+  },
+});
+
+export default @connect(null, mapDispatchToProps)
+@withRouter
 class Header extends React.PureComponent {
 
   static contextTypes = {
@@ -13,6 +20,7 @@ class Header extends React.PureComponent {
   };
 
   static propTypes = {
+    openClosedRegistrationsModal: PropTypes.func,
     location: PropTypes.object,
   };
 
@@ -27,10 +35,26 @@ class Header extends React.PureComponent {
         </>
       );
     } else {
+      let signupButton;
+
+      if (registrationsOpen) {
+        signupButton = (
+          <a href='/auth/sign_up' className='button button-tertiary'>
+            <FormattedMessage id='sign_in_banner.create_account' defaultMessage='Create account' />
+          </a>
+        );
+      } else {
+        signupButton = (
+          <button className='button button-tertiary' onClick={openClosedRegistrationsModal}>
+            <FormattedMessage id='sign_in_banner.create_account' defaultMessage='Create account' />
+          </button>
+        );
+      }
+
       content = (
         <>
           <a href='/auth/sign_in' className='button'><FormattedMessage id='sign_in_banner.sign_in' defaultMessage='Sign in' /></a>
-          <a href={registrationsOpen ? '/auth/sign_up' : 'https://joinmastodon.org/servers'} className='button button-tertiary'><FormattedMessage id='sign_in_banner.create_account' defaultMessage='Create account' /></a>
+          {signupButton}
         </>
       );
     }

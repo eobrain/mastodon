@@ -167,6 +167,8 @@ en:
       redownloaded_msg: Successfully refreshed %{username}'s profile from origin
       reject: Reject
       rejected_msg: Successfully rejected %{username}'s sign-up application
+      remote_suspension_irreversible: The data of this account has been irreversibly deleted.
+      remote_suspension_reversible_hint_html: The account has been suspended on their server, and the data will be fully removed on %{date}. Until then, the remote server can restore this account without any ill effects. If you wish to remove all of the account's data immediately, you can do so below.
       remove_avatar: Remove avatar
       remove_header: Remove header
       removed_avatar_msg: Successfully removed %{username}'s avatar image
@@ -441,9 +443,9 @@ en:
         create: Create block
         hint: The domain block will not prevent creation of account entries in the database, but will retroactively and automatically apply specific moderation methods on those accounts.
         severity:
-          desc_html: "<strong>Silence</strong> will make the account's posts invisible to anyone who isn't following them. <strong>Suspend</strong> will remove all of the account's content, media, and profile data. Use <strong>None</strong> if you just want to reject media files."
+          desc_html: "<strong>Limit</strong> will make posts from accounts at this domain invisible to anyone who isn't following them. <strong>Suspend</strong> will remove all content, media, and profile data for this domain's accounts from your server. Use <strong>None</strong> if you just want to reject media files."
           noop: None
-          silence: Silence
+          silence: Limit
           suspend: Suspend
         title: New domain block
       no_domain_block_selected: No domain blocks were changed as none were selected
@@ -606,13 +608,12 @@ en:
       pending: Waiting for relay's approval
       save_and_enable: Save and enable
       setup: Setup a relay connection
-      signatures_not_enabled: Relays will not work correctly while secure mode or limited federation mode is enabled
+      signatures_not_enabled: Relays may not work correctly while secure mode or limited federation mode is enabled
       status: Status
       title: Relays
     report_notes:
       created_msg: Report note successfully created!
       destroyed_msg: Report note successfully deleted!
-      today_at: Today at %{time}
     reports:
       account:
         notes:
@@ -994,7 +995,7 @@ en:
     warning: Be very careful with this data. Never share it with anyone!
     your_token: Your access token
   auth:
-    apply_for_account: Get on waitlist
+    apply_for_account: Request an account
     change_password: Password
     delete_account: Delete account
     delete_account_html: If you wish to delete your account, you can <a href="%{path}">proceed here</a>. You will be asked for confirmation.
@@ -1031,6 +1032,9 @@ en:
       email_below_hint_html: If the below e-mail address is incorrect, you can change it here and receive a new confirmation e-mail.
       email_settings_hint_html: The confirmation e-mail was sent to %{email}. If that e-mail address is not correct, you can change it in account settings.
       title: Setup
+    sign_in:
+      preamble_html: Sign in with your <strong>%{domain}</strong> credentials. If your account is hosted on a different server, you will not be able to log in here.
+      title: Sign in to %{domain}
     sign_up:
       preamble: With an account on this Mastodon server, you'll be able to follow any other person on the network, regardless of where their account is hosted.
       title: Let's get you set up on %{domain}.
