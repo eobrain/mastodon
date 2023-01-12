@@ -4,6 +4,7 @@ class REST::PreferencesSerializer < ActiveModel::Serializer
   attribute :posting_default_privacy, key: 'posting:default:visibility'
   attribute :posting_default_sensitive, key: 'posting:default:sensitive'
   attribute :posting_default_language, key: 'posting:default:language'
+  attribute :posting_default_federation, key: 'posting:default:federation'
 
   attribute :reading_default_sensitive_media, key: 'reading:expand:media'
   attribute :reading_default_sensitive_text, key: 'reading:expand:spoilers'
@@ -29,7 +30,7 @@ class REST::PreferencesSerializer < ActiveModel::Serializer
     object.user.setting_expand_spoilers
   end
 
-  def reading_autoplay_gifs
-    object.user.setting_auto_play_gif
+  def posting_default_federation
+    object.user.setting_default_federation
   end
 end

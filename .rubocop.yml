@@ -5,12 +5,7 @@ require:
 
 AllCops:
   TargetRubyVersion: 2.7
-  DisplayCopNames: true
-  DisplayStyleGuide: true
-  ExtraDetails: true
-  UseCache: true
-  CacheRootDirectory: tmp
-  NewCops: enable
+  NewCops: disable
   Exclude:
     - db/schema.rb
     - 'app/views/**/*'
@@ -75,43 +70,9 @@ Lint/UselessAccessModifier:
 Metrics/AbcSize:
   Max: 34 # RuboCop default 17
   Exclude:
-    - 'lib/**/*cli*.rb'
-    - db/*migrate/**/*
-    - lib/paperclip/color_extractor.rb
-    - app/workers/scheduler/follow_recommendations_scheduler.rb
-    - app/services/activitypub/fetch*_service.rb
-    - lib/paperclip/**/*
-  CountRepeatedAttributes: false
+    - 'lib/mastodon/*_cli.rb'
   AllowedMethods:
-    - update_media_attachments!
-    - account_link_to
-    - attempt_oembed
-    - build_crutches
-    - calculate_scores
-    - cc
-    - dump_actor!
-    - filter_from_home?
-    - hydrate
-    - import_bookmarks!
-    - import_relationships!
-    - initialize
-    - link_to_mention
-    - log_target
-    - matches_time_window?
-    - parse_metadata
-    - perform_statuses_search!
-    - privatize_media_attachments!
     - process_update
-    - publish_media_attachments!
-    - remotable_attachment
-    - render_initial_state
-    - render_with_cache
-    - searchable_by
-    - self.cached_filters_for
-    - set_fetchable_attributes!
-    - signed_request_actor
-    - statuses_to_delete
-    - update_poll!
 
 Metrics/BlockLength:
   Max: 55
@@ -140,30 +101,9 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Max: 12
   Exclude:
-    - lib/mastodon/*cli*.rb
-    - db/*migrate/**/*
+    - 'lib/mastodon/*_cli.rb'
   AllowedMethods:
-    - attempt_oembed
-    - blocked?
-    - build_crutches
-    - calculate_scores
-    - cc
-    - discover_endpoint!
-    - filter_from_home?
-    - hydrate
-    - klass
-    - link_to_mention
-    - log_target
-    - matches_time_window?
-    - patch_for_forwarding!
-    - preprocess_attributes!
     - process_update
-    - remotable_attachment
-    - scan_text!
-    - self.cached_filters_for
-    - set_fetchable_attributes!
-    - setup_redis_env_url
-    - update_media_attachments!
 
 Layout/LineLength:
   Max: 140 # RuboCop default 120
@@ -258,19 +198,9 @@ Metrics/ParameterLists:
     - app/services/activitypub/fetch_remote_actor_service.rb
 
 Metrics/PerceivedComplexity:
-  Max: 16 # RuboCop default 8
+  Max: 25
   AllowedMethods:
-    - attempt_oembed
-    - build_crutches
-    - calculate_scores
-    - deduplicate_users!
-    - discover_endpoint!
-    - filter_from_home?
-    - hydrate
-    - patch_for_forwarding!
     - process_update
-    - remove_orphans
-    - update_media_attachments!
 
 Naming/MemoizedInstanceVariableName:
   Enabled: false

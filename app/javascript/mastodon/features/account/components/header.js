@@ -151,16 +151,7 @@ class Header extends ImmutablePureComponent {
     }
   }
 
-  handleShare = () => {
-    const { account } = this.props;
-
-    navigator.share({
-      text: `${titleFromAccount(account)}\n${account.get('note_plain')}`,
-      url: account.get('url'),
-    }).catch((e) => {
-      if (e.name !== 'AbortError') console.error(e);
-    });
-  }
+  handleDisplayNameClick = () => window.open(this.props.account.get('url'));
 
   render () {
     const { account, hidden, intl, domain } = this.props;
@@ -350,10 +341,8 @@ class Header extends ImmutablePureComponent {
 
           <div className='account__header__tabs__name'>
             <h1>
-              <span dangerouslySetInnerHTML={displayNameHtml} /> {badge}
-              <small>
-                <span>@{acct}</span> {lockedIcon}
-              </small>
+              <a href={account.get('url')} target='_blank' rel='noopener noreferrer'><span dangerouslySetInnerHTML={displayNameHtml} /></a>{isRemote ? <span> <IconButton icon='external-link' size={14} onClick={this.handleDisplayNameClick} /></span> : null} {badge}
+              <small>@{acct} {lockedIcon}</small>
             </h1>
           </div>
 

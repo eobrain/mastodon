@@ -2,19 +2,8 @@ import React from 'react';
 import Logo from 'mastodon/components/logo';
 import { Link, withRouter } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { registrationsOpen, me } from 'mastodon/initial_state';
-import Avatar from 'mastodon/components/avatar';
+import { registrationsOpen } from 'mastodon/initial_state';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { openModal } from 'mastodon/actions/modal';
-
-const Account = connect(state => ({
-  account: state.getIn(['accounts', me]),
-}))(({ account }) => (
-  <Link to={`/@${account.get('acct')}`} title={account.get('acct')}>
-    <Avatar account={account} size={35} />
-  </Link>
-));
 
 const mapDispatchToProps = (dispatch) => ({
   openClosedRegistrationsModal() {
@@ -37,15 +26,12 @@ class Header extends React.PureComponent {
 
   render () {
     const { signedIn } = this.context.identity;
-    const { location, openClosedRegistrationsModal } = this.props;
 
     let content;
 
     if (signedIn) {
       content = (
         <>
-          {location.pathname !== '/publish' && <Link to='/publish' className='button'><FormattedMessage id='compose_form.publish_form' defaultMessage='Publish' /></Link>}
-          <Account />
         </>
       );
     } else {

@@ -59,7 +59,7 @@ class LinkFooter extends React.PureComponent {
         <p>
           <strong>{domain}</strong>:
           {' '}
-          <Link key='about' to='/about'><FormattedMessage id='footer.about' defaultMessage='About' /></Link>
+          <a key='about' href='/about'><FormattedMessage id='footer.about' defaultMessage='About' /></a>
           {canInvite && (
             <>
               {DividingCircle}
@@ -77,6 +77,16 @@ class LinkFooter extends React.PureComponent {
         </p>
 
         <p>
+          <strong>Hometown</strong>:
+          {' '}
+          <a href='https://github.com/hometown-fork/hometown/wiki' target='_blank'><FormattedMessage id='footer.about' defaultMessage='About' /></a>
+          {' · '}
+          <a href='https://github.com/hometown-fork/hometown/' rel='noopener noreferrer' target='_blank'><FormattedMessage id='footer.source_code' defaultMessage='View source code' /></a>
+          {' · '}
+          v{version}
+        </p>
+
+        <p>
           <strong>Mastodon</strong>:
           {' '}
           <a href='https://joinmastodon.org' target='_blank'><FormattedMessage id='footer.about' defaultMessage='About' /></a>
@@ -86,8 +96,6 @@ class LinkFooter extends React.PureComponent {
           <Link to='/keyboard-shortcuts'><FormattedMessage id='footer.keyboard_shortcuts' defaultMessage='Keyboard shortcuts' /></Link>
           {DividingCircle}
           <a href={source_url} rel='noopener noreferrer' target='_blank'><FormattedMessage id='footer.source_code' defaultMessage='View source code' /></a>
-          {DividingCircle}
-          v{version}
         </p>
       </div>
     );

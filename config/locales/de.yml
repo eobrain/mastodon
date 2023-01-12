@@ -395,16 +395,14 @@ de:
           desc_html: "<strong>Stummschaltung</strong> wird die Beiträge von Konten unter dieser Domain für alle unsichtbar machen, die den Konten nicht folgen. Eine <strong>Sperre</strong> wird alle Inhalte, Medien und Profildaten für Konten dieser Domain von deinem Server entfernen. Verwende <strong>keine,</strong> um nur Mediendateien abzulehnen."
           noop: Kein
           silence: Stummschaltung
-          suspend: Sperren
-        title: Neue Domain-Sperre
-      no_domain_block_selected: Keine Domains gesperrt, weil keine ausgewählt wurde(n)
-      not_permitted: Dir ist es nicht erlaubt, diese Handlung durchzuführen
-      obfuscate: Domain-Name verschleiern
-      obfuscate_hint: Den Domain-Namen öffentlich nur teilweise bekannt geben, sofern die Liste der Domain-Beschränkungen aktiviert ist
-      private_comment: Private bzw. nicht-öffentliche Notiz
-      private_comment_hint: Kommentar zu dieser Domain-Beschränkung für die interne Nutzung durch die Moderator*innen.
-      public_comment: Öffentliche Notiz
-      public_comment_hint: Öffentlicher Hinweis zu dieser Domain-Beschränkung, sofern das Veröffentlichen von Sperrlisten grundsätzlich aktiviert ist.
+          suspend: Sperre
+        title: Neue Domain-Blockade
+      obfuscate: Domainname verschleiern
+      obfuscate_hint: Den Domainnamen in der Liste teilweise verschleiern, wenn die Liste der Domänenbeschränkungen aktiviert ist
+      private_comment: Privater Kommentar
+      private_comment_hint: Kommentar zu dieser Domain-Beschränkung für die interne Nutzung durch die Moderatoren.
+      public_comment: Öffentlicher Kommentar
+      public_comment_hint: Kommentar zu dieser Domain-Beschränkung für die allgemeine Öffentlichkeit, wenn das Veröffentlichen der Blockliste aktiviert ist.
       reject_media: Mediendateien ablehnen
       reject_media_hint: Entfernt lokal gespeicherte Mediendateien und verhindert deren künftiges Herunterladen. Für Sperren irrelevant
       reject_reports: Meldungen ablehnen
@@ -603,7 +601,7 @@ de:
         delete: Löschen
         placeholder: Bitte beschreibe, welche Maßnahmen ergriffen wurden oder andere damit verbundene Aktualisierungen …
         title: Notizen
-      notes_description_html: Notiz an dich und andere Moderator*innen hinterlassen
+      notes_description_html: Zeige und hinterlasse Notizen an andere Moderatoren und dein zukünftiges Selbst
       quick_actions_description_html: 'Führe eine schnelle Aktion aus oder scrolle nach unten, um gemeldete Inhalte zu sehen:'
       remote_user_placeholder: das externe Profil von %{instance}
       reopen: Meldung wieder eröffnen
@@ -846,7 +844,6 @@ de:
           one: In der letzten Woche von einer Person genutzt
           other: In der letzten Woche von %{count} Personen genutzt
       title: Trends
-      trending: Häufig diskutiert
     warning_presets:
       add_new: Neu hinzufügen
       delete: Löschen
@@ -1056,12 +1053,10 @@ de:
       appealed_msg: Dein Einspruch wurde übermittelt. Wenn er angenommen wird, wirst du benachrichtigt.
       appeals:
         submit: Einspruch erheben
-      approve_appeal: Einspruch annehmen
       associated_report: Zugehöriger Bericht
       created_at: Datum
       description_html: Dies sind Aktionen gegen dein Konto und Warnungen, die von den Mitarbeitern von %{instance} an dich gesendet wurden.
       recipient: Adressiert an
-      reject_appeal: Einspruch ablehnen
       status: 'Beitrag #%{id}'
       status_removed: Beitrag bereits vom System entfernt
       title: "%{action} vom %{date}"
@@ -1094,8 +1089,8 @@ de:
     '503': Die Seite konnte wegen eines temporären Serverfehlers nicht angezeigt werden.
     noscript_html: Bitte aktiviere JavaScript, um die Mastodon-Web-Anwendung zu verwenden. Alternativ kannst du auch eine der <a href="%{apps_path}">nativen Mastodon-Anwendungen</a> für deine Plattform probieren.
   existing_username_validator:
-    not_found: kann lokale*n Benutzer*in mit diesem Profilnamen nicht finden
-    not_found_multiple: "%{usernames} können nicht gefunden werden"
+    not_found: kann lokalen Benutzer nicht mit diesem Nuternamen finden
+    not_found_multiple: kann %{usernames} nicht finden
   exports:
     archive_takeout:
       date: Datum
@@ -1375,7 +1370,7 @@ de:
     last_active: Zuletzt aktiv
     most_recent: Neuste
     moved: Umgezogen
-    mutual: Gegenseitig
+    mutual: Bekannt
     primary: Primär
     relationship: Beziehung
     remove_selected_domains: Entferne alle Follower von den ausgewählten Domains
@@ -1387,11 +1382,6 @@ de:
   reports:
     errors:
       invalid_rules: verweist nicht auf gültige Regeln
-  rss:
-    content_warning: 'Inhaltswarnung:'
-    descriptions:
-      account: Öffentliche Beiträge von @%{acct}
-      tag: 'Öffentliche Beiträge mit dem Tag #%{hashtag}'
   scheduled_statuses:
     over_daily_limit: Du hast das Limit für geplante Beiträge, welches %{limit} beträgt, für heute erreicht
     over_total_limit: Du hast das Limit für geplante Beiträge, welches %{limit} beträgt, erreicht
@@ -1602,15 +1592,15 @@ de:
       title: Eine neue Anmeldung
     warning:
       appeal: Einspruch einsenden
-      appeal_description: Wenn du glaubst, dass es sich um einen Fehler handelt, kannst du einen Einspruch an die Administration von %{instance} senden.
+      appeal_description: Wenn du glaubst, dass dies ein Fehler ist, kannst du einen Einspruch an die Mitarbeiter von %{instance} senden.
       categories:
         spam: Spam
         violation: Inhalt verstößt gegen die folgenden Gemeinschaftsrichtlinien
       explanation:
-        delete_statuses: Einige deiner Beiträge wurden als Verstoß gegen eine oder mehrere Gemeinschaftsrichtlinien erkannt und von den Moderator*innen von %{instance} entfernt.
-        disable: Du kannst dein Konto nicht mehr verwenden, aber dein Profil und andere Daten bleiben unversehrt. Du kannst eine Sicherung deiner Daten anfordern, die Kontoeinstellungen ändern oder dein Konto löschen.
-        mark_statuses_as_sensitive: Ein oder mehrere deiner Beiträge wurden von den Moderator*innen von %{instance} mit einer Inhaltswarnung versehen. Das bedeutet, dass Besucher*innen diese Medien in den Beiträgen zunächst antippen müssen, um die Vorschau anzuzeigen. Beim Verfassen der nächsten Beiträge kannst du auch selbst eine Inhaltswarnung für hochgeladene Medien festlegen.
-        sensitive: Von nun an werden alle deine hochgeladenen Mediendateien mit einer Inhaltswarnung versehen und hinter einer Warnung versteckt.
+        delete_statuses: Einige deiner Beiträge wurden als Verstoß gegen eine oder mehrere Communityrichtlinien erkannt und von den Moderatoren von %{instance} entfernt.
+        disable: Du kannst dein Konto nicht mehr verwenden, aber dein Profil und andere Daten bleiben unversehrt. Du kannst ein Backup deiner Daten anfordern, die Kontoeinstellungen ändern oder dein Konto löschen.
+        mark_statuses_as_sensitive: Ein oder mehrere Deiner Beiträge wurden von den Moderator*innen der Instanz %{instance} mit einer Inhaltswarnung (NSFW) versehen. Das bedeutet, dass Besucher*innen diese Medien in den Beiträgen zunächst antippen müssen, um die Vorschau anzuzeigen. Beim Verfassen der nächsten Beiträge kannst du auch selbst eine Inhaltswarnung für hochgeladene Medien festlegen.
+        sensitive: Von nun an werden alle deine hochgeladenen Mediendateien als sensibel markiert und hinter einer Warnung versteckt.
         silence: Solange dein Konto limitiert ist, können nur die Leute, die dir bereits folgen, deine Beiträge auf dem Server sehen, und es könnte sein, dass du von verschiedenen öffentlichen Listungen ausgeschlossen wirst. Andererseits können andere dir manuell folgen.
         suspend: Du kannst dein Konto nicht mehr verwenden und dein Profil und andere Daten sind nicht mehr verfügbar. Du kannst dich immer noch anmelden, um eine Sicherung deiner Daten anzufordern, bis die Daten innerhalb von 30 Tagen vollständig gelöscht wurden. Allerdings werden wir einige Daten speichern, um zu verhindern, dass du die Sperrung umgehst.
       reason: 'Grund:'
